@@ -12,4 +12,8 @@
             </a>
         @endforeach
     </div>
+
+    <div class="flex justify-center items-center mt-4">
+        {{ $films->links() }}
+    </div>
 </div>

@@ -23,7 +23,7 @@ class CreateFilm extends Component {
 
         $coverPath = $this->cover->store('covers', 'public');
 
-        Film::create([
+        $film = Film::create([
             'title' => $this->title,
             'director' => $this->director,
             'summary' => $this->summary,
@@ -31,6 +31,8 @@ class CreateFilm extends Component {
         ]);
 
         session()->flash('message', 'Filme cadastrado com sucesso!');
+
+        return redirect()->route('film.show', $film->id);
     }
     public function render() {
         return view('livewire.web.create-film');
